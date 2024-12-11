@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAssist - Your Health Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm fixed top-0 w-full z-10 animate__animated animate__fadeIn">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <i class="bi bi-heart-pulse-fill text-red-500 text-2xl pulse"></i>
+                <h1 class="ml-3 text-xl font-semibold text-gray-800">MedAssist AI</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="clear-chat" class="text-gray-600 hover:text-red-500 transition-colors">
+                    <i class="bi bi-trash"></i>
+                </button>
+                <button id="toggle-theme" class="text-gray-600 hover:text-yellow-500 transition-colors">
+                    <i class="bi bi-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-24 pb-8 animate__animated animate__fadeIn">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-1 bg-white p-6 rounded-lg shadow-sm fade-in">
+                <h3 class="text-lg font-semibold mb-4">Health Categories</h3>
+                <ul class="space-y-3" id="suggestion-list">
+                    <li class="suggestion-item cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors">
+                        <i class="bi bi-heart text-red-500"></i>
+                        <span class="ml-2">General Health</span>
+                    </li>
+                    <li class="suggestion-item cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors">
+                        <i class="bi bi-battery-charging text-green-500"></i>
+                        <span class="ml-2">Mental Wellness</span>
+                    </li>
+                    <li class="suggestion-item cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors">
+                        <i class="bi bi-droplet text-blue-500"></i>
+                        <span class="ml-2">Nutrition</span>
+                    </li>
+                    <li class="suggestion-item cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors">
+                        <i class="bi bi-activity text-purple-500"></i>
+                        <span class="ml-2">Exercise</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3 fade-in">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div id="chat-container" class="chat-container mb-4">
+                        <div class="mb-4 message-enter">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-robot text-2xl text-blue-500"></i>
+                                </div>
+                                <div class="ml-3 bg-blue-50 rounded-lg p-4 max-w-[80%]">
+                                    <p class="text-gray-800">Hello! I'm MedAssist, your AI health companion. I can help you with general health queries, nutrition advice, and wellness tips. How can I assist you today?</p>
+                                    <p class="text-xs text-gray-500 mt-2">Note: I provide general information only. Please consult healthcare professionals for medical advice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div id="suggestion-chips" class="flex flex-wrap gap-2">
+                            <button class="chip px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-full text-sm transition-colors">How to stay healthy?</button>
+                            <button class="chip px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-full text-sm transition-colors">Nutrition tips</button>
+                            <button class="chip px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-full text-sm transition-colors">Exercise recommendations</button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="relative flex-1">
+                                <input type="text" id="chat-input" 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" 
+                                    placeholder="Type your health question...">
+                                <button id="mic-btn" class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                                    <i class="bi bi-mic text-gray-600"></i>
+                                </button>
+                            </div>
+                            <button id="send-btn" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2">
+                                <span>Send</span>
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/chatbot.js"></script>
+</body>
+</html>

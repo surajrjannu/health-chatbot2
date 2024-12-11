@@ -1,0 +1,64 @@
+body { font-family: 'Poppins', sans-serif; }
+.chat-container {
+    height: calc(100vh - 400px);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.typing-indicator::after {
+    content: '...';
+    animation: typing 1.5s infinite;
+}
+@keyframes typing {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+}
+.message-enter {
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+@media (max-width: 768px) {
+    .chat-container {
+        height: calc(100vh - 450px);
+    }
+}
